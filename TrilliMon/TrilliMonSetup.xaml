@@ -1,0 +1,25 @@
+﻿<Window x:Class="TrilliMon.TrilliMonSetup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TrilliMon Setup" Height="288" Width="286" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" WindowStyle="ToolWindow" Background="WhiteSmoke" Icon="/TrilliMon;component/Resources/TrilliMon.ico">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="132*" />
+            <ColumnDefinition Width="132*" />
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="Google Voice Signin Information" Name="groupBox1" Height="139" VerticalAlignment="Top" Grid.ColumnSpan="2" Margin="6,3,5,0" BorderBrush="DodgerBlue" Background="White">
+            <Grid>
+                <Label Content="Username:" Height="28" HorizontalAlignment="Left" Margin="9,10,0,0" Name="label1" VerticalAlignment="Top" />
+                <Label Content="Password:" Height="28" HorizontalAlignment="Left" Margin="9,48,0,0" Name="label2" VerticalAlignment="Top" />
+                <TextBox Height="23" Margin="80,12,0,0" Name="tbUsername" VerticalAlignment="Top" HorizontalAlignment="Left" Width="144" ToolTip="Google Voice Username (user@gmail.com)" />
+                <PasswordBox Height="23" HorizontalAlignment="Left" Margin="80,50,0,0" Name="tbPassword" VerticalAlignment="Top" Width="144" ToolTip="Google Voice password" />
+<CheckBox Content="_Remember Login" Height="16" HorizontalAlignment="Center" Margin="0,88,0,0" Name="ckRememberLogin" VerticalAlignment="Top" ToolTip="Remembers username for next use" />
+            </Grid>
+        </GroupBox>
+        <Label Content="Forward to number:" Height="28" HorizontalAlignment="Left" Margin="17,148,0,0" Name="label3" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="0,150,0,0" Name="tbCellNumber" VerticalAlignment="Top" Width="87" MaxLength="10" ToolTip="Enter your 10-digit mobile number" Text="" Grid.Column="1" PreviewTextInput="numericOnly_PreviewTextInput" />
+        <CheckBox Content="I'm using Trillian Astra" Height="16" HorizontalAlignment="Center" Margin="65,184,65,0" Name="ckUsingAstra" VerticalAlignment="Top" Grid.ColumnSpan="2" />
+        <Button Content="_Start" Height="23" HorizontalAlignment="Left" Margin="45,0,0,12" Name="btnStart" VerticalAlignment="Bottom" Width="75" Click="btnStart_Click" IsDefault="True" />
+        <Button Content="E_xit" Height="23" HorizontalAlignment="Right" Margin="0,0,45,12" Name="btnExit" VerticalAlignment="Bottom" Width="75" Grid.Column="1" Click="btnExit_Click" IsCancel="True" />
+    </Grid>
+</Window>

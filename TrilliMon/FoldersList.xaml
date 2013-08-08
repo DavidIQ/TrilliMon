@@ -1,0 +1,25 @@
+﻿<Window x:Class="TrilliMon.FoldersList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="FoldersList" Height="271" Width="206" WindowStyle="None" Loaded="Window_Loaded" WindowStartupLocation="CenterOwner" ShowInTaskbar="False" ResizeMode="NoResize" AllowsTransparency="True">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="104*" />
+            <ColumnDefinition Width="105*" />
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="Brown" BorderThickness="4" Grid.ColumnSpan="2" Name="border1" CornerRadius="10" Background="AliceBlue" />
+        <Label Content="Select the folders to watch" Height="28" Margin="12,12,12,0" Name="label1" VerticalAlignment="Top" HorizontalAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="2" Width="160" />
+        <ListBox Margin="12,41,12,42" Name="lbFolders" Background="WhiteSmoke" BorderThickness="1" ItemsSource="{Binding FolderList}" Grid.ColumnSpan="2">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox IsChecked="{Binding IsSelected}" Content="{Binding TheText}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="_OK" Height="23" HorizontalAlignment="Left" Margin="59,0,0,12" Name="btnOK" VerticalAlignment="Bottom" Width="30" Click="btnOK_Click" IsDefault="True" />
+        <Button Content="_Cancel" Height="23" Margin="0,0,39,12" Name="btnCancel" VerticalAlignment="Bottom" Click="btnCancel_Click" HorizontalAlignment="Right" Width="50" Grid.Column="1" IsCancel="True" />
+    </Grid>
+    <Window.Background>
+        <SolidColorBrush />
+    </Window.Background>
+</Window>
