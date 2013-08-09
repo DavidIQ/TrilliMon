@@ -98,6 +98,8 @@ namespace TrilliMon
                         string msg = Uri.UnescapeDataString(rnrRegex.Match(lastline).ToString().Trim());
                         if (msg.StartsWith("text=\"")) { msg = msg.Substring(("text=\"").Length).Trim(); }
                         if (msg.EndsWith("\"")) { msg = msg.Substring(0, msg.Length - 1); }
+                        //and now strip any HTML tags that might be lingering
+                        msg = Regex.Replace(msg, @"<(.|\n)*?>", string.Empty);
                         gv.SendSMS("+1" + cellNum, from + ": " + msg);
                     }
                     else
