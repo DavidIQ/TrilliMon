@@ -95,10 +95,10 @@ namespace TrilliMon
                     if (rnrRegex.IsMatch(lastline))
                     {
                         //send the content of the message
-                        string msg = Uri.UnescapeDataString(rnrRegex.Match(lastline).ToString());
-                        if (msg.StartsWith("text=\"")) { msg = msg.Substring(("text=\"").Length - 1); }
+                        string msg = Uri.UnescapeDataString(rnrRegex.Match(lastline).ToString().Trim());
+                        if (msg.StartsWith("text=\"")) { msg = msg.Substring(("text=\"").Length).Trim(); }
                         if (msg.EndsWith("\"")) { msg = msg.Substring(0, msg.Length - 1); }
-                        gv.SendSMS("+1" + cellNum, from + ": " + msg.Substring(5));
+                        gv.SendSMS("+1" + cellNum, from + ": " + msg);
                     }
                     else
                     {
@@ -116,12 +116,12 @@ namespace TrilliMon
         private void OnError(object source, ErrorEventArgs e)
         {
             HandleMessage("Ooops! We got an error: " + e.GetException().Message);
+            Dispatcher.BeginInvoke((Action)(() => this.Show()));
         }
 
         private void HandleMessage(string msg)
         {
             Dispatcher.BeginInvoke((Action)(() => lbLog.Items.Add(msg)));
-            Dispatcher.BeginInvoke((Action)(() => this.Show()));
         }
     }
 }
